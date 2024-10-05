@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:uuid/uuid.dart';
 
 import 'functions.dart';
@@ -370,14 +369,14 @@ class _DetailViewState extends State<DetailView> {
                             },
                       child: Text(
                         editingEnabled ? 'Save' : 'Edit',
-                        style: TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15),
                       ),
                     ),
                     const SizedBox(width: 12),
                     CupertinoButton(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      color: const Color.fromARGB(255, 220, 54, 45),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 10, horizontal: 20),
+                      color: const Color.fromARGB(255, 190, 53, 53),
                       onPressed: () {
                         removeItem(item['id']);
                         Navigator.pop(context);
@@ -386,17 +385,19 @@ class _DetailViewState extends State<DetailView> {
                           const Text('Delete', style: TextStyle(fontSize: 15)),
                     ),
                     const SizedBox(width: 12),
-                    CupertinoButton(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                      color: const Color.fromARGB(255, 86, 24, 144),
-                      onPressed: () => {
-                        Share.share(
-                            'Subject: ${item['subject']}\nDetails:  ${item['details']}')
-                      },
-                      child:
-                          const Text('Share', style: TextStyle(fontSize: 15)),
-                    ),
+                    Builder(builder: (BuildContext context) {
+                      return CupertinoButton(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 20),
+                        color: const Color.fromARGB(255, 22, 130, 145),
+                        onPressed: () => {
+                          shareContent(context,
+                              'Subject: ${item['subject']}\nDetails:  ${item['details']}')
+                        },
+                        child:
+                            const Text('Share', style: TextStyle(fontSize: 15)),
+                      );
+                    }),
                   ],
                 ),
                 const SizedBox(height: 20),

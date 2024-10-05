@@ -1,4 +1,6 @@
 PODS:
+  - device_info (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - path_provider_foundation (0.0.1):
     - Flutter
@@ -20,6 +22,7 @@ PODS:
   - zikzak_share_handler_ios_models (0.0.9)
 
 DEPENDENCIES:
+  - device_info (from `.symlinks/plugins/device_info/ios`)
   - Flutter (from `Flutter`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
@@ -29,6 +32,8 @@ DEPENDENCIES:
   - zikzak_share_handler_ios_models (from `.symlinks/plugins/zikzak_share_handler_ios/ios/Models`)
 
 EXTERNAL SOURCES:
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
   Flutter:
     :path: Flutter
   path_provider_foundation:
@@ -45,6 +50,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/zikzak_share_handler_ios/ios/Models"
 
 SPEC CHECKSUMS:
+  device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   share_plus: 8875f4f2500512ea181eef553c3e27dba5135aad

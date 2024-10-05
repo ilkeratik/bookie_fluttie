@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uuid/uuid.dart';
 import 'package:zikzak_share_handler/zikzak_share_handler.dart';
@@ -162,7 +161,7 @@ class VideoBookmarksState extends State<VideoBookmarks>
                         ),
                         SlidableAction(
                           onPressed: (context) =>
-                              {Share.share('${item['link']}')},
+                              {shareContent(context, '${item['link']}')},
                           backgroundColor:
                               const Color.fromARGB(255, 22, 130, 145),
                           foregroundColor: CupertinoColors.white,
