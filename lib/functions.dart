@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:device_info/device_info.dart';
 import 'package:flutter/widgets.dart';
@@ -36,14 +37,18 @@ Future<List<Map<String, dynamic>>?> loadItemsFromStorage(String prefKey) async {
 
 void shareContent(BuildContext context, String text) async {
   DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
-  IosDeviceInfo info = await deviceInfo.iosInfo;
-  if (info.model.toLowerCase().contains("ipad")) {
-    if (context.mounted) {
-      final box = context.findRenderObject() as RenderBox?;
-      await Share.share(
-        text,
-        sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
-      );
+  if (Platform.isIOS) {
+    IosDeviceInfo info = await deviceInfo.iosInfo;
+    if (info.model.toLowerCase().contains("ipad")) {
+      if (context.mounted) {
+        final box = context.findRenderObject() as RenderBox?;
+        await Share.share(
+          text,
+          sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+        );
+      }
+    } else {
+      Share.share(text);
     }
   } else {
     Share.share(text);

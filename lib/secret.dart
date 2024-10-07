@@ -1,1 +1,1 @@
-final YT_API_KEY = 'AIzaSyA0NvVM1069IYbH5_Ies9pLl0aIqSxdzFA';
+const YT_API_KEY = 'replace_with_yours';
